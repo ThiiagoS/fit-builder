@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cadastro_ficha"
+    android:id="@+id/cadastro_treino"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121214"
-    tools:context=".Activity_CadastroFicha">
+    tools:context=".Activity_CadastroTreino">
 
 
     <FrameLayout
-        android:id="@+id/frmTopo_CadastroFicha"
+        android:id="@+id/frmTopo_CadastroTreino"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:background="#202024"
@@ -21,11 +21,11 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/txtTitulo_CadastroFicha"
+            android:id="@+id/txtTitulo_CadastroTreino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Cadastro da Ficha"
+            android:text="Cadastro do Treino"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/btnvoltar_CadastroFicha"
+            android:id="@+id/btnvoltar_CadastroTreino"
             android:layout_width="36dp"
             android:layout_height="31dp"
             android:layout_gravity="center_vertical"
@@ -47,25 +47,25 @@
     </FrameLayout>
 
     <EditText
-        android:id="@+id/editNomeExercicio_CadastroFicha"
+        android:id="@+id/editNomeExercicio_CadastroTreino"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
-        android:hint="Nome da Ficha"
+        android:hint="Nome do Treino"
         android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frmTopo_CadastroFicha" />
+        app:layout_constraintTop_toBottomOf="@id/frmTopo_CadastroTreino" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/editAdicionarFicha_CadastroFicha"
+        android:id="@+id/editAdicionarFicha_CadastroTreino"
         android:layout_width="380dp"
         android:layout_height="56dp"
         android:layout_marginBottom="20dp"
         android:background="#4C88E3"
-        android:text="Adicionar Ficha"
+        android:text="Adicionar Treino"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -18,7 +18,7 @@ public class Activity_TreinosDaFicha extends AppCompatActivity {
     Button btnFicha1;
     Button btnFicha2;
     Button btnFicha3;
-
+    Button btnAdicionar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class Activity_TreinosDaFicha extends AppCompatActivity {
         btnFicha1 = findViewById(R.id.treinos_da_ficha_buttonFicha1);
         btnFicha2 = findViewById(R.id.treinos_da_ficha_buttonFicha2);
         btnFicha3 = findViewById(R.id.treinos_da_ficha_buttonFicha3);
-        ;
+        btnAdicionar = findViewById(R.id.treinos_da_ficha_buttonAdicionarTreino);
 
         btnFicha1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +57,14 @@ public class Activity_TreinosDaFicha extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Activity_TreinosDaFicha.this, Activity_ListaDeExercicios.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Activity_TreinosDaFicha.this, Activity_CadastroTreino.class);
                 startActivity(intent);
             }
         });
