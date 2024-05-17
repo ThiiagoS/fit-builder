@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121214"
+    tools:context=".Activity_Login">
+
+    <TextView
+        android:id="@+id/txtTitulo_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FitBuilder"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="90dp"/>
+
+    <TextView
+        android:id="@+id/txtDescricao_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acesse sua conta:"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo_Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="90dp"/>
+
+    <EditText
+        android:id="@+id/editNome_Login"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Nome"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtDescricao_Login" />
+
+    <EditText
+        android:id="@+id/editSenha_Login"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:hint="Senha"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/editNome_Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCriarContaAcessar_Login"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:text="Acessar"
+        android:background="#4C88E3"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editSenha_Login"/>
+
+    <TextView
+        android:id="@+id/txtCriarConta_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ainda não tem acesso?"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/btnCriarContaAcessar_Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="140dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCriarConta_Login"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:background="#4C88E3"
+        android:text="Criar conta"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCriarConta_Login"
+        app:layout_constraintVertical_bias="0.700" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

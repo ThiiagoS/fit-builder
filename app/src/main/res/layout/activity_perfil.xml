@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_perfil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".Activity_Perfil">
+
+    <TextView
+        android:id="@+id/textViewTitle_Perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FitBuilder"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/textViewGender_Perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha seu gênero biológico"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle_Perfil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutGender_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewGender_Perfil">
+
+        <ImageButton
+            android:id="@+id/buttonMale_Perfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:importantForAccessibility="no"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_masc"
+            android:textColor="#000000" />
+
+        <ImageButton
+            android:id="@+id/buttonFemale_Perfil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="TODO"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_fem"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextAge_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        android:hint="Digite sua idade"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutGender_Perfil" />
+
+    <TextView
+        android:id="@+id/editTextHeight_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        android:hint="Digite sua altura"
+        android:textColor="#000000"
+        android:textColorHint="#FFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge_Perfil" />
+
+    <SeekBar
+        android:id="@+id/seekBarWeight_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="30dp"
+        android:max="250"
+        android:progress="170"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHeight_Perfil" />
+
+    <TextView
+        android:id="@+id/textViewWeight_Perfil"
+        android:layout_width="65dp"
+        android:layout_height="21dp"
+        android:text="170cm"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/seekBarWeight_Perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHeight_Perfil"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <TextView
+        android:id="@+id/editTextPeso_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:hint="Selecione seu peso"
+        android:textColorHint="#FFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarWeight_Perfil" />
+
+    <TextView
+        android:id="@+id/textViewPeso_Perfil"
+        android:layout_width="65dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="20dp"
+        android:text="64Kg"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPeso_Perfil" />
+
+    <SeekBar
+        android:id="@+id/seekBarPeso_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:max="120"
+        android:progress="64"
+        app:layout_constraintBottom_toTopOf="@+id/buttonContinue_Perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPeso_Perfil"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <Button
+        android:id="@+id/buttonContinue_Perfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#1E90FF"
+        android:text="Continuar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

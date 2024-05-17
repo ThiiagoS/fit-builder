@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fichaDeTreinos_FichaDeTreinos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121214"
+    tools:context=".Activity_FichaDeTreinos">
+
+    <FrameLayout
+        android:id="@+id/frameLayout_FichaDeTreinos"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="#202024"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFicha1_FichaDeTreinos"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_FichaDeTreinos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ficha de Treinos"
+            android:textColor="#E1E1E6"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/btnvoltar_FichaDeTreinos"
+            android:layout_width="36dp"
+            android:layout_height="31dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/icons"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewExemploIntent_FichaDeTreinos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.042"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.533" />
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonFicha1_FichaDeTreinos"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:background="#202024"
+        android:paddingStart="15dp"
+        android:text="Ficha 1"
+        android:textAlignment="viewStart"
+        android:textColor="#C4C4CC"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFicha2_FichaDeTreinos"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonFicha2_FichaDeTreinos"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:background="#202024"
+        android:paddingStart="15dp"
+        android:text="Ficha 2"
+        android:textAlignment="viewStart"
+        android:textColor="#C4C4CC"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="263dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFicha3_FichaDeTreinos"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFicha1_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonFicha3_FichaDeTreinos"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:background="#202024"
+        android:paddingStart="15dp"
+        android:text="Ficha 3"
+        android:textAlignment="viewStart"
+        android:textColor="#C4C4CC"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="318dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFicha4_FichaDeTreinos"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFicha2_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonFicha4_FichaDeTreinos"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:background="#202024"
+        android:paddingStart="15dp"
+        android:text="Ficha 4"
+        android:textAlignment="viewStart"
+        android:textColor="#C4C4CC"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="373dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFicha5_FichaDeTreinos"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFicha3_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonFicha5_FichaDeTreinos"
+        android:layout_width="380dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="250dp"
+        android:background="#202024"
+        android:paddingStart="15dp"
+        android:text="Ficha 5"
+        android:textAlignment="viewStart"
+        android:textColor="#C4C4CC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFicha4_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonAdicionarFicha_FichaDeTreinos"
+        android:layout_width="185dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="150dp"
+        android:background="#4C88E3"
+        android:text="Adicionar Ficha"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRemoverFicha_FichaDeTreinos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFicha5_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonRemoverFicha_FichaDeTreinos"
+        android:layout_width="185dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="150dp"
+        android:background="#4C88E3"
+        android:text="Remover Ficha"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdicionarFicha_FichaDeTreinos"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFicha5_FichaDeTreinos">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

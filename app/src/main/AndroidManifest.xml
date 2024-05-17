@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FitBuilder"
+        tools:targetApi="31">
+        <activity
+            android:name=".Activity_Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Activity_AdicionarAmigo"></activity>
+        <activity android:name=".Activity_CadastroExercicio"></activity>
+        <activity android:name=".Activity_CriarConta"></activity>
+        <activity android:name=".Activity_EditarListaDeExercicios"></activity>
+        <activity android:name=".Activity_Exercicio"></activity>
+        <activity android:name=".Activity_FichaDeTreinos"></activity>
+        <activity android:name=".Activity_Home"></activity>
+        <activity android:name=".Activity_ListaDeAmigos"></activity>
+        <activity android:name=".Activity_ListaDeExercicios"></activity>
+        <activity android:name=".Activity_Perfil"></activity>
+        <activity android:name=".Activity_TreinosDaFicha"></activity>
+
+
+
+
+    </application>
+
+</manifest>
