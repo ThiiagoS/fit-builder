@@ -115,7 +115,7 @@
         android:id="@+id/editAdicionarFicha_CadastroExercicio"
         android:layout_width="380dp"
         android:layout_height="56dp"
-        android:text="Adicionar Ficha"
+        android:text="Adicionar Exercício"
         android:background="#4C88E3"
         android:textColor="#FFFFFF"
         android:layout_marginTop="180dp"

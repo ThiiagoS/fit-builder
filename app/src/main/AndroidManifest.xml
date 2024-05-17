@@ -28,6 +28,7 @@
         <activity android:name=".Activity_EditarListaDeExercicios"></activity>
         <activity android:name=".Activity_Exercicio"></activity>
         <activity android:name=".Activity_FichaDeTreinos"></activity>
+        <activity android:name=".Activity_CadastroFicha"></activity>
         <activity android:name=".Activity_Home"></activity>
         <activity android:name=".Activity_ListaDeAmigos"></activity>
         <activity android:name=".Activity_ListaDeExercicios"></activity>

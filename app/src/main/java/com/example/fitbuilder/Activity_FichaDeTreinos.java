@@ -84,8 +84,8 @@ public class Activity_FichaDeTreinos extends AppCompatActivity {
         btnAdicionarFicha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Activity_FichaDeTreinos.this, Activity_TreinosDaFicha.class);
-                //startActivity(intent);
+                Intent intent = new Intent(Activity_FichaDeTreinos.this, Activity_CadastroFicha.class);
+                startActivity(intent);
             }
         });
 
