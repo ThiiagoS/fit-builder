@@ -30,7 +30,7 @@ public class Activity_CriarConta extends AppCompatActivity {
         btnCriarAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity_CriarConta.this, Activity_Home.class);
+                Intent intent = new Intent(Activity_CriarConta.this, Activity_Perfil.class);
                 startActivity(intent);
             }
         });
