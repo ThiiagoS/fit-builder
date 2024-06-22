@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Exercise extends SQLiteOpenHelper {
+public class Exercise extends DatabaseHelper {
 
     public boolean addExercise(String name, String muscleGroup, int series, int repetition, int restTime) {
         SQLiteDatabase db = this.getWritableDatabase();

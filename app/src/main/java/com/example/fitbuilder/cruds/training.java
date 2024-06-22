@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class Training extends SQLiteOpenHelper {
+public class Training extends DatabaseHelper {
 
 public boolean addTraining(String name, int userId, String daysWorkout, String type) {
         SQLiteDatabase db = this.getWritableDatabase();
