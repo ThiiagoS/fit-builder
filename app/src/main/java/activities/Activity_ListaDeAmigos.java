@@ -1,4 +1,4 @@
-package com.example.fitbuilder;
+package activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,33 +12,37 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Activity_Exercicio extends AppCompatActivity {
+import com.example.fitbuilder.R;
+
+public class Activity_ListaDeAmigos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_exercicio);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_exercicio), (v, insets) -> {
+        setContentView(R.layout.activity_lista_de_amigos);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.listaDeAmigos_ListaDeAmigos), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        ImageView btnVoltar = findViewById(R.id.btnvoltar_Exercicio);
-        Button btnRelealizado_Exercicio = findViewById(R.id.editRelealizado_Exercicio);
+        ImageView btnVoltar = findViewById(R.id.btnvoltar_ListaDeAmigos);
+        Button btnAdicionarAmigo = findViewById(R.id.buttonAdicionarAmigo_ListaDeAmigos);
 
-        btnRelealizado_Exercicio.setOnClickListener(new View.OnClickListener() {
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+        btnAdicionarAmigo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent(Activity_ListaDeAmigos.this, Activity_AdicionarAmigo.class);
+                startActivity(intent);
             }
         });
 

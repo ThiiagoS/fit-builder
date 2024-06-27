@@ -1,4 +1,4 @@
-package com.example.myapp;
+package cruds;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,13 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import database.DatabaseHelper;
+
 public class Exercise extends DatabaseHelper {
+
+    public Exercise(Context context) {
+        super(context);
+    }
 
     public boolean addExercise(String name, String muscleGroup, int series, int repetition, int restTime) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -43,5 +49,5 @@ public class Exercise extends DatabaseHelper {
         int result = db.delete(TABLE_EXERCISE, COLUMN_EXERCISE_ID + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
-    
+
 }

@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TRAINING_ID = "id";
     public static final String COLUMN_TRAINING_NAME = "name";
     public static final String COLUMN_TRAINING_USER_ID = "user_id";
-    public static final String COLUMN_TRAINING_DW = "days_workout";
+    public static final String COLUMN_TRAINING_DAYS_WEEK = "days_workout";
     public static final String COLUMN_TRAINING_TYPE = "type";
 
     public static final String TABLE_EXERCISE = "exercise";
@@ -66,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             COLUMN_TRAINING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_TRAINING_NAME + " TEXT, " +
             COLUMN_TRAINING_USER_ID + " INTEGER, " +
-            COLUMN_TRAINING_DW + " TEXT, " +
+            COLUMN_TRAINING_DAYS_WEEK + " TEXT, " +
             COLUMN_TRAINING_TYPE + " TEXT);";
 
     private static final String TABLE_CREATE_EXERCISE =
@@ -82,8 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + TABLE_FRIENDS + " (" +
             COLUMN_FRIENDS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             COLUMN_FRIENDS_NAME + " TEXT, " +
-            COLUMN_FRIENDS_EMAIL + " TEXT, " +
-            COLUMN_FRIENDS_PHONE + " TEXT);";
+            COLUMN_FRIENDS_EMAIL + " TEXT);";
             
     private static final String TABLE_CREATE_TRAINING_EXERCISE =
             "CREATE TABLE " + TABLE_TRAINING_EXERCISE + " (" +

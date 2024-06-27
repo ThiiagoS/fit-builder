@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121214"
-    tools:context=".Activity_TreinosDaFicha">
+    tools:context="activities.Activity_TreinosDaFicha">
 
     <FrameLayout
         android:id="@+id/treinos_da_ficha_frameLayout"

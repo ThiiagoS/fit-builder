@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121214"
-    tools:context=".Activity_ListaDeAmigos">
+    tools:context="activities.Activity_ListaDeAmigos">
 
     <FrameLayout
         android:id="@+id/frameLayout_ListaDeAmigos"

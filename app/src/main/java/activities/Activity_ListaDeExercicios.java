@@ -1,4 +1,4 @@
-package com.example.fitbuilder;
+package activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,11 @@ import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.fitbuilder.R;
 
 public class Activity_ListaDeExercicios extends AppCompatActivity {
 

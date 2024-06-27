@@ -1,20 +1,24 @@
-package com.example.myapp;
+package cruds;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+
+import database.DatabaseHelper;
 
 public class Training extends DatabaseHelper {
 
-public boolean addTraining(String name, int userId, String daysWorkout, String type) {
+    public Training(Context context) {
+        super(context);
+    }
+
+    public boolean addTraining(String name, int userId, String daysWorkout, String type) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TRAINING_NAME, name);
         values.put(COLUMN_TRAINING_USER_ID, userId);
-        values.put(COLUMN_TRAINING_DW, daysWorkout);
+        values.put(COLUMN_TRAINING_DAYS_WEEK, daysWorkout);
         values.put(COLUMN_TRAINING_TYPE, type);
         long result = db.insert(TABLE_TRAINING, null, values);
         return result != -1;
@@ -30,7 +34,7 @@ public boolean addTraining(String name, int userId, String daysWorkout, String t
         ContentValues values = new ContentValues();
         values.put(COLUMN_TRAINING_NAME, name);
         values.put(COLUMN_TRAINING_USER_ID, userId);
-        values.put(COLUMN_TRAINING_DW, daysWorkout);
+        values.put(COLUMN_TRAINING_DAYS_WEEK, daysWorkout);
         values.put(COLUMN_TRAINING_TYPE, type);
         int result = db.update(TABLE_TRAINING, values, COLUMN_TRAINING_ID + " = ?", new String[]{String.valueOf(id)});
         return result > 0;

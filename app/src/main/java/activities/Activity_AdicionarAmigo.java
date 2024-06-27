@@ -1,5 +1,7 @@
-package com.example.fitbuilder;
+package activities;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,21 +13,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Activity_CadastroFicha extends AppCompatActivity {
+import com.example.fitbuilder.R;
+
+public class Activity_AdicionarAmigo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_cadastro_ficha);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cadastro_ficha), (v, insets) -> {
+        setContentView(R.layout.activity_adicionar_amigo);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        ImageView btnVoltar = findViewById(R.id.btnvoltar_CadastroFicha);
-        Button btnAdicionar = findViewById(R.id.editAdicionarFicha_CadastroFicha);
+        ImageView btnVoltar = findViewById(R.id.btnvoltar_ListaDeAmigos);
+        Button btnAdicionar = findViewById(R.id.editAdicionarAmigo_AdicionarAmigo);
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +44,5 @@ public class Activity_CadastroFicha extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 }
