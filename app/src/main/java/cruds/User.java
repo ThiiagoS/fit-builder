@@ -13,15 +13,15 @@ public class User extends DatabaseHelper {
         super(context);
     }
 
-    public boolean addUser(String listName, String userEmail, String userPassword, String userGender,
-                           double userWidth, double userHeight, double userSize) {
+    public boolean addUser(String userName, String userEmail, String userPassword, String userGender,
+                           Integer age, String userHeight, String userSize) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USER_NAME, listName);
+        values.put(COLUMN_USER_NAME, userName);
         values.put(COLUMN_USER_EMAIL, userEmail);
         values.put(COLUMN_USER_PASSWORD, userPassword);
         values.put(COLUMN_USER_GENDER, userGender);
-        values.put(COLUMN_USER_WIDTH, userWidth);
+        values.put(COLUMN_USER_AGE, age);
         values.put(COLUMN_USER_HEIGHT, userHeight);
         values.put(COLUMN_USER_SIZE, userSize);
         long result = db.insert(TABLE_USER, null, values);
@@ -34,15 +34,15 @@ public class User extends DatabaseHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_USER, null);
     }
 
-    public boolean updateUser(int id, String listName, String userEmail, String userPassword, String userGender,
-                              double userWidth, double userHeight, double userSize) {
+    public boolean updateUser(int id, String userName, String userEmail, String userPassword, String userGender,
+                              Integer age, String userHeight, String userSize) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USER_NAME, listName);
+        values.put(COLUMN_USER_NAME, userName);
         values.put(COLUMN_USER_EMAIL, userEmail);
         values.put(COLUMN_USER_PASSWORD, userPassword);
         values.put(COLUMN_USER_GENDER, userGender);
-        values.put(COLUMN_USER_WIDTH, userWidth);
+        values.put(COLUMN_USER_AGE, age);
         values.put(COLUMN_USER_HEIGHT, userHeight);
         values.put(COLUMN_USER_SIZE, userSize);
         int result = db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?", new String[]{String.valueOf(id)});
