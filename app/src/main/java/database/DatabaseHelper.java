@@ -51,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_CREATE_FRIENDS =
             "CREATE TABLE " + TABLE_FRIENDS + " (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "userFriend_id INTEGER," +
                     "name TEXT, " +
                     "email TEXT);";
 

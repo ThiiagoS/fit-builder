@@ -50,6 +50,7 @@ public class Activity_Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Activity_Home.this, Activity_ListaDeAmigos.class);
+                intent.putExtra("ID", id);
                 startActivity(intent);
 
             }

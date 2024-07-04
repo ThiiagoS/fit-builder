@@ -15,9 +15,10 @@ public class Friends extends DatabaseHelper {
         super(context);
     }
 
-    public boolean addFriend(String name, String email, String phone) {
+    public boolean addFriend(Integer userFriend_id, String name, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("userFriend_id", userFriend_id);
         values.put("name", name);
         values.put("email", email);
         long result = db.insert(TABLE_FRIENDS, null, values);
@@ -29,9 +30,10 @@ public class Friends extends DatabaseHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_FRIENDS, null);
     }
 
-    public boolean updateFriend(int id, String name, String email, String phone) {
+    public boolean updateFriend(int id, String userFriend_id, String name, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("userFriend_id", userFriend_id);
         values.put("name", name);
         values.put("email", email);
         int result = db.update(TABLE_FRIENDS, values, "id" + " = ?", new String[]{String.valueOf(id)});
