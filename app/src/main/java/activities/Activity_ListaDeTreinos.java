@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,6 +90,7 @@ public class Activity_ListaDeTreinos extends AppCompatActivity {
             button.setOnClickListener(v ->
                     {
                         Intent intent2 = new Intent(Activity_ListaDeTreinos.this, Activity_ListaDeExercicios.class);
+                        intent2.putExtra("NAME_TRAINING", buttonNames.get(finalIndex));
                         intent2.putExtra("ID_TRAINING", buttonIds.get(finalIndex).toString());
                         startActivity(intent2);
                     }

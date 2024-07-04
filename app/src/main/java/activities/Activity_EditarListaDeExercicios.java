@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,8 +40,14 @@ public class Activity_EditarListaDeExercicios extends AppCompatActivity {
         ImageView btnVoltar = findViewById(R.id.btnvoltar_EditarListaDeExercicios);
         Button btnAdicionarExercicio = findViewById(R.id.buttonAdicionarExercicio_EditarListaDeExercicios);
 
+        TextView titleTraining = findViewById(R.id.textViewTreino_EditarListaDeExercicios);
+
+
         Intent intent = getIntent();
         String idTreino = intent.getStringExtra("ID_TRAINING");
+        String nomeTreino = intent.getStringExtra("NAME_TRAINING");
+
+        titleTraining.setText("Treino "+ nomeTreino);
 
         Exercise exercise = new Exercise(this);
 

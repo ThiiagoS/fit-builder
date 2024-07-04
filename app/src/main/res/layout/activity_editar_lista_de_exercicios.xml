@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="Treino A"
+            android:text="Treino"
             android:textColor="#E1E1E6"
             android:textSize="24sp" />
 

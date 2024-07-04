@@ -1,5 +1,6 @@
 package activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,8 +9,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.Insets;
@@ -24,6 +30,14 @@ import java.util.Objects;
 import cruds.Exercise;
 
 public class Activity_ListaDeExercicios extends AppCompatActivity {
+
+    private ActivityResultLauncher<Intent> activityLauncher;
+
+    private int currentIndex = 0;
+    private int totalActivities = 0;
+
+    private  ArrayList<String> buttonNames = new ArrayList<>();
+    private ArrayList<Integer> buttonIds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +54,19 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
         Button btnEditar = findViewById(R.id.buttonEditar_ListaDeExercicios);
         Button btnTreinar = findViewById(R.id.buttonTreinar_ListaDeExercicios);
 
+        TextView titleTraining = findViewById(R.id.textViewTitle_ListaDeExercicios);
+
+
         Intent intent = getIntent();
         String idTreino = intent.getStringExtra("ID_TRAINING");
+        String nomeTreino = intent.getStringExtra("NAME_TRAINING");
+
+
+        titleTraining.setText("Treino " + nomeTreino);
 
         Exercise exercise = new Exercise(this);
 
         LinearLayout buttonContainer = findViewById(R.id.button_container);
-
-        ArrayList<String> buttonNames = new ArrayList<>();
-        ArrayList<Integer> buttonIds = new ArrayList<>();
 
         Cursor cursor = exercise.getAllExercises();
         if (cursor.moveToFirst()) {
@@ -89,6 +107,25 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
             index++;
         }
 
+        totalActivities = buttonNames.size();
+
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode() == RESULT_OK) {
+                    Intent data = result.getData();
+                    boolean shouldStop = data.getBooleanExtra("should_stop", false);
+                    if (shouldStop) {
+                        currentIndex = 0;
+                        return;
+                    }
+                    if (currentIndex < totalActivities) {
+                        startNextActivity();
+                    }
+                }
+            }
+        });
+
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +137,7 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Activity_ListaDeExercicios.this, Activity_EditarListaDeExercicios.class);
+                intent.putExtra("NAME_TRAINING", nomeTreino);
                 intent.putExtra("ID_TRAINING", idTreino);
                 startActivity(intent);
             }
@@ -108,10 +146,20 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
         btnTreinar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity_ListaDeExercicios.this, Activity_Exercicio.class);
-                intent.putExtra("ARRAY_EXERCICES", buttonNames);
-                startActivity(intent);
+                currentIndex= 0;
+                startNextActivity();
             }
         });
+
     }
+
+    private void startNextActivity() {
+        if (currentIndex < totalActivities) {
+            Intent intent = new Intent(Activity_ListaDeExercicios.this, Activity_Exercicio.class);
+            intent.putExtra("NAME_EXERCISE", buttonNames.get(currentIndex));
+            activityLauncher.launch(intent);
+            currentIndex++;
+        }
+    }
+
 }
