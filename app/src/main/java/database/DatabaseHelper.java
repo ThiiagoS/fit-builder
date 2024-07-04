@@ -12,91 +12,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     public static final String TABLE_USER = "user";
-    public static final String COLUMN_USER_ID = "id";
-    public static final String COLUMN_USER_NAME = "name";
-    public static final String COLUMN_USER_EMAIL = "email";
-    public static final String COLUMN_USER_PASSWORD = "password";
-    public static final String COLUMN_USER_GENDER = "gender";
-    public static final String COLUMN_USER_AGE = "age";
-    public static final String COLUMN_USER_HEIGHT = "height";
-    public static final String COLUMN_USER_SIZE = "size";
-
     public static final String TABLE_TRAINING = "training";
-    public static final String COLUMN_TRAINING_ID = "id";
-    public static final String COLUMN_TRAINING_NAME = "name";
-    public static final String COLUMN_TRAINING_USER_ID = "user_id";
-    public static final String COLUMN_TRAINING_DAYS_WEEK = "days_workout";
-    public static final String COLUMN_TRAINING_TYPE = "type";
-
     public static final String TABLE_EXERCISE = "exercise";
-    public static final String COLUMN_EXERCISE_ID = "id";
-    public static final String COLUMN_EXERCISE_NAME = "name";
-    public static final String COLUMN_EXERCISE_MUSCLEGROUP = "muscle_group";
-    public static final String COLUMN_EXERCISE_SERIES = "series";
-    public static final String COLUMN_EXERCISE_REPETITION = "repetition";
-    public static final String COLUMN_EXERCISE_RESTTIME = "rest_time";
-    
-    public static final String TABLE_TRAINING_EXERCISE = "training_exercise";
-    public static final String COLUMN_TE_TRAINING_ID = "training_id";
-    public static final String COLUMN_TE_EXERCISE_ID = "exercise_id";
-
     public static final String TABLE_FRIENDS = "friends";
-    public static final String COLUMN_FRIENDS_ID = "id";
-    public static final String COLUMN_FRIENDS_NAME = "name";
-    public static final String COLUMN_FRIENDS_EMAIL = "email";
-
-//     public static final String TABLE_TRAINING_LIST = "training_list";
-//     public static final String COLUMN_TRAINING_LIST_ID = "id";
-//     public static final String COLUMN_TRAINING_LIST_NAME = "name";
-
+    public static final String TABLE_FRIENDS_RELATION = "friends_relation";
 
     private static final String TABLE_USER_CREATE =
-            "CREATE TABLE " + TABLE_USER + " (" +
-            COLUMN_USER_ID + "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_USER_NAME + " TEXT, " +
-            COLUMN_USER_EMAIL + " TEXT, " +
-            COLUMN_USER_PASSWORD + " TEXT, " +
-            COLUMN_USER_GENDER + " TEXT, " +
-            COLUMN_USER_AGE + " INTEGER, " +
-            COLUMN_USER_HEIGHT + " TEXT, " +
-            COLUMN_USER_SIZE + " TEXT);";
-    
+            "CREATE TABLE " + TABLE_USER + "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "name TEXT, " +
+                    "email TEXT, " +
+                    "password TEXT, " +
+                    "gender TEXT, " +
+                    "age INTEGER, " +
+                    "height TEXT, " +
+                    "size TEXT);";
+
+
     private static final String TABLE_CREATE_TRAINING =
-            "CREATE TABLE " + TABLE_TRAINING + " (" +
-            COLUMN_TRAINING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_TRAINING_NAME + " TEXT, " +
-            COLUMN_TRAINING_USER_ID + " INTEGER, " +
-            COLUMN_TRAINING_DAYS_WEEK + " TEXT, " +
-            COLUMN_TRAINING_TYPE + " TEXT);";
+            "CREATE TABLE " + TABLE_TRAINING + "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "name TEXT, " +
+                    "user_id INTEGER, " +
+                    "days_workout TEXT, " +
+                    "type TEXT);";
+
 
     private static final String TABLE_CREATE_EXERCISE =
             "CREATE TABLE " + TABLE_EXERCISE + " (" +
-            COLUMN_EXERCISE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_EXERCISE_NAME + " TEXT, " +
-            COLUMN_EXERCISE_MUSCLEGROUP + " TEXT, " +
-            COLUMN_EXERCISE_SERIES + " INTEGER, " +
-            COLUMN_EXERCISE_REPETITION + " INTEGER, " +
-            COLUMN_EXERCISE_RESTTIME + " INTEGER);";
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "name TEXT, " +
+                    "muscle_group TEXT, " +
+                    "series INTEGER, " +
+                    "repetition INTEGER, " +
+                    "rest_time INTEGER);";
+
 
     private static final String TABLE_CREATE_FRIENDS =
             "CREATE TABLE " + TABLE_FRIENDS + " (" +
-            COLUMN_FRIENDS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_FRIENDS_NAME + " TEXT, " +
-            COLUMN_FRIENDS_EMAIL + " TEXT);";
-            
-    private static final String TABLE_CREATE_TRAINING_EXERCISE =
-            "CREATE TABLE " + TABLE_TRAINING_EXERCISE + " (" +
-            COLUMN_TE_TRAINING_ID + " INTEGER, " +
-            COLUMN_TE_EXERCISE_ID + " INTEGER, " +
-            "FOREIGN KEY (" + COLUMN_TE_TRAINING_ID + ") REFERENCES " + TABLE_TRAINING + "(" + COLUMN_TRAINING_ID + "), " +
-            "FOREIGN KEY (" + COLUMN_TE_EXERCISE_ID + ") REFERENCES " + TABLE_EXERCISE + "(" + COLUMN_EXERCISE_ID + "), " +
-            "PRIMARY KEY (" + COLUMN_TE_TRAINING_ID + ", " + COLUMN_TE_EXERCISE_ID + "));";
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "name TEXT, " +
+                    "email TEXT);";
 
+    private static final String TABLE_CREATE_FRIENDS_RELATION =
+            "CREATE TABLE " + TABLE_FRIENDS_RELATION + " (" +
+                    "user_id INTEGER, friend_id INTEGER, " +
+                    "FOREIGN KEY(user_id) REFERENCES " + TABLE_USER + "(id), " +
+                    "FOREIGN KEY(friend_id) REFERENCES " + TABLE_FRIENDS + "(id));";
 
-//     private static final String TABLE_CREATE_TRAINING_LIST =
-//             "CREATE TABLE " + TABLE_TRAINING_LIST + " (" +
-//             COLUMN_TRAINING_LIST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//             COLUMN_TRAINING_LIST_NAME + " TEXT);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -108,18 +71,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(TABLE_CREATE_TRAINING);
         db.execSQL(TABLE_CREATE_EXERCISE);
         db.execSQL(TABLE_CREATE_FRIENDS);
-        db.execSQL(TABLE_CREATE_TRAINING_EXERCISE);
-        // db.execSQL(TABLE_CREATE_TRAINING_LIST); 
+        db.execSQL(TABLE_CREATE_FRIENDS_RELATION);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_CREATE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRAINING);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXERCISE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CREATE_TRAINING_EXERCISE);
-        //db.execSQL("DROP TABLE IF EXISTS " + TABLE_CREATE_TRAINING_LIST);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDS_RELATION);
         onCreate(db);
     }
 

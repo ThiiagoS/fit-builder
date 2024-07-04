@@ -17,13 +17,13 @@ public class User extends DatabaseHelper {
                            Integer age, String userHeight, String userSize) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USER_NAME, userName);
-        values.put(COLUMN_USER_EMAIL, userEmail);
-        values.put(COLUMN_USER_PASSWORD, userPassword);
-        values.put(COLUMN_USER_GENDER, userGender);
-        values.put(COLUMN_USER_AGE, age);
-        values.put(COLUMN_USER_HEIGHT, userHeight);
-        values.put(COLUMN_USER_SIZE, userSize);
+        values.put("name", userName);
+        values.put("email", userEmail);
+        values.put("password", userPassword);
+        values.put("gender", userGender);
+        values.put("age", age);
+        values.put("height", userHeight);
+        values.put("size", userSize);
         long result = db.insert(TABLE_USER, null, values);
         return result != -1;
     }
@@ -38,20 +38,20 @@ public class User extends DatabaseHelper {
                               Integer age, String userHeight, String userSize) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USER_NAME, userName);
-        values.put(COLUMN_USER_EMAIL, userEmail);
-        values.put(COLUMN_USER_PASSWORD, userPassword);
-        values.put(COLUMN_USER_GENDER, userGender);
-        values.put(COLUMN_USER_AGE, age);
-        values.put(COLUMN_USER_HEIGHT, userHeight);
-        values.put(COLUMN_USER_SIZE, userSize);
-        int result = db.update(TABLE_USER, values, COLUMN_USER_ID + " = ?", new String[]{String.valueOf(id)});
+        values.put("name", userName);
+        values.put("email", userEmail);
+        values.put("password", userPassword);
+        values.put("gender", userGender);
+        values.put("age", age);
+        values.put("height", userHeight);
+        values.put("size", userSize);
+        int result = db.update(TABLE_USER, values, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
 
     public boolean deleteUser(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int result = db.delete(TABLE_USER, COLUMN_USER_ID + " = ?", new String[]{String.valueOf(id)});
+        int result = db.delete(TABLE_USER, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
 }

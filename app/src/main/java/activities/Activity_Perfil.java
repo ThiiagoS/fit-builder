@@ -1,7 +1,9 @@
 package activities;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +20,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fitbuilder.R;
 
+import java.util.Objects;
+
 import cruds.User;
+import utils.Dialog;
 
 public class Activity_Perfil extends AppCompatActivity {
 
+    private String genero;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,47 +59,82 @@ public class Activity_Perfil extends AppCompatActivity {
         final TextView textViewPeso = findViewById(R.id.textViewPeso_Perfil);
 
         EditText idadePerfil = findViewById(R.id.editTextAge_Perfil);
-        String genero = "";
+        genero = "";
+
+        int blueColor = Color.parseColor("#32aeb7");
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String altura = textViewWeight.getText().toString();
                 String peso = textViewPeso.getText().toString();
-                Integer idade = Integer.valueOf(idadePerfil.getText().toString());
+                String idade = idadePerfil.getText().toString();
 
+                if (genero.isEmpty()) {
+                    Dialog.showErrorDialog(Activity_Perfil.this, "Erro", "O gênero deve ser preenchido.");
+                    return;
+                }
 
+                if (idade.isEmpty()) {
+                    Dialog.showErrorDialog(Activity_Perfil.this, "Erro", "A idade deve ser preenchida.");
+                    return;
+                }
 
-                user.addUser(nome,email,senha,genero,idade,altura,peso);
+                if (altura.isEmpty()) {
+                    Dialog.showErrorDialog(Activity_Perfil.this, "Erro", "A altura deve ser preenchida.");
+                    return;
+                }
+
+                if (peso.isEmpty()) {
+                    Dialog.showErrorDialog(Activity_Perfil.this, "Erro", "O peso deve ser preenchida.");
+                    return;
+                }
+
+                user.addUser(nome,email,senha,genero,Integer.valueOf(idade),altura,peso);
+
+                String ID = "";
+                Cursor cursor = user.getAllUsers();
+                if (cursor.moveToFirst()) {
+                    do {
+                        int indexNome = cursor.getColumnIndex("name");
+                        int indexSenha = cursor.getColumnIndex("password");
+                        int indexID = cursor.getColumnIndex("id");
+
+                        String nomeUsuarioCadastrado = cursor.getString(indexNome);
+                        String senhaUsuarioCadastrado = cursor.getString(indexSenha);
+                        String idUsuarioCadatrado = cursor.getString(indexID);
+
+                        if(Objects.equals(nome, nomeUsuarioCadastrado) && Objects.equals(senha, senhaUsuarioCadastrado)){
+                            ID = idUsuarioCadatrado;
+                        }
+
+                    } while (cursor.moveToNext());
+                }
 
                 Intent intent = new Intent(Activity_Perfil.this, Activity_Home.class);
+
+                intent.putExtra("ID", ID);
+                intent.putExtra("NOME", nome);
                 startActivity(intent);
 
-                // Cursor cursor = user.getAllUsers();
-                // if(cursor.moveToFirst()){
-                //     do {
-                //         int indexNome = cursor.getColumnIndex("name");
-                //         int indexEmail = cursor.getColumnIndex("email");
-
-                //         String nome = cursor.getString(indexNome);
-                //         String email = cursor.getString(indexEmail);
-                //     } while (cursor.moveToNext());
-                // }
-                
             }
         });
 
         btnHomem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String genero = "Homem";
+                btnHomem.setBackgroundTintList(ColorStateList.valueOf(blueColor));
+                btnMulher.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+                genero = "Homem";
             }
         });
 
         btnMulher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String genero = "Mulher";
+                btnHomem.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+                btnMulher.setBackgroundTintList(ColorStateList.valueOf(blueColor));
+                genero = "Mulher";
             }
         });
 

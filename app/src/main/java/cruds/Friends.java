@@ -18,8 +18,8 @@ public class Friends extends DatabaseHelper {
     public boolean addFriend(String name, String email, String phone) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_FRIENDS_NAME, name);
-        values.put(COLUMN_FRIENDS_EMAIL, email);
+        values.put("name", name);
+        values.put("email", email);
         long result = db.insert(TABLE_FRIENDS, null, values);
         return result != -1;
     }
@@ -32,15 +32,15 @@ public class Friends extends DatabaseHelper {
     public boolean updateFriend(int id, String name, String email, String phone) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_FRIENDS_NAME, name);
-        values.put(COLUMN_FRIENDS_EMAIL, email);
-        int result = db.update(TABLE_FRIENDS, values, COLUMN_FRIENDS_ID + " = ?", new String[]{String.valueOf(id)});
+        values.put("name", name);
+        values.put("email", email);
+        int result = db.update(TABLE_FRIENDS, values, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
 
     public boolean deleteFriend(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int result = db.delete(TABLE_FRIENDS, COLUMN_FRIENDS_ID + " = ?", new String[]{String.valueOf(id)});
+        int result = db.delete(TABLE_FRIENDS, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,10 +27,17 @@ public class Activity_Home extends AppCompatActivity {
             return insets;
         });
 
+        Intent intent = getIntent();
+
+        String nome = intent.getStringExtra("NOME");
+        String id = intent.getStringExtra("ID");
+
+        TextView nomeDeUsuario = findViewById(R.id.textViewOla_Home);
         ImageView btnSair = findViewById(R.id.imageViewSair_Home);
         ImageView btnFichaTreino = findViewById(R.id.FichaTreino_Home);
         ImageView btnAmigos = findViewById(R.id.Amigos_Home);
 
+        nomeDeUsuario.setText("Olá, " + nome);
         btnFichaTreino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

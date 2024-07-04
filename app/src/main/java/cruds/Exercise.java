@@ -18,11 +18,11 @@ public class Exercise extends DatabaseHelper {
     public boolean addExercise(String name, String muscleGroup, int series, int repetition, int restTime) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_EXERCISE_NAME, name);
-        values.put(COLUMN_EXERCISE_MUSCLEGROUP, muscleGroup);
-        values.put(COLUMN_EXERCISE_SERIES, series);
-        values.put(COLUMN_EXERCISE_REPETITION, repetition);
-        values.put(COLUMN_EXERCISE_RESTTIME, restTime);
+        values.put("name", name);
+        values.put("muscle_group", muscleGroup);
+        values.put("series", series);
+        values.put("repetition", repetition);
+        values.put("rest_time", restTime);
         long result = db.insert(TABLE_EXERCISE, null, values);
         return result != -1;
     }
@@ -35,18 +35,18 @@ public class Exercise extends DatabaseHelper {
     public boolean updateExercise(int id, String name, String muscleGroup, int series, int repetition, int restTime) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_EXERCISE_NAME, name);
-        values.put(COLUMN_EXERCISE_MUSCLEGROUP, muscleGroup);
-        values.put(COLUMN_EXERCISE_SERIES, series);
-        values.put(COLUMN_EXERCISE_REPETITION, repetition);
-        values.put(COLUMN_EXERCISE_RESTTIME, restTime);
-        int result = db.update(TABLE_EXERCISE, values, COLUMN_EXERCISE_ID + " = ?", new String[]{String.valueOf(id)});
+        values.put("name", name);
+        values.put("muscle_group", muscleGroup);
+        values.put("series", series);
+        values.put("repetition", repetition);
+        values.put("rest_time", restTime);
+        int result = db.update(TABLE_EXERCISE, values, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
 
     public boolean deleteExercise(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int result = db.delete(TABLE_EXERCISE, COLUMN_EXERCISE_ID + " = ?", new String[]{String.valueOf(id)});
+        int result = db.delete(TABLE_EXERCISE, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }
 

@@ -56,19 +56,22 @@ public class Activity_Login extends AppCompatActivity {
             public void onClick(View v) {
                 String nome = nomeUsuario.getText().toString();
                 String senha = senhaUsuario.getText().toString();
-
+                String ID = "";
                 Boolean credenciasCorretas = false;
                 Cursor cursor = user.getAllUsers();
                 if (cursor.moveToFirst()) {
                     do {
                         int indexNome = cursor.getColumnIndex("name");
                         int indexSenha = cursor.getColumnIndex("password");
+                        int indexID = cursor.getColumnIndex("id");
 
                         String nomeUsuarioCadastrado = cursor.getString(indexNome);
                         String senhaUsuarioCadastrado = cursor.getString(indexSenha);
+                        String idUsuarioCadatrado = cursor.getString(indexID);
 
                         if(Objects.equals(nome, nomeUsuarioCadastrado) && Objects.equals(senha, senhaUsuarioCadastrado)){
                             credenciasCorretas = true;
+                            ID = idUsuarioCadatrado;
                         }
 
                     } while (cursor.moveToNext());
@@ -78,7 +81,12 @@ public class Activity_Login extends AppCompatActivity {
                     Dialog.showErrorDialog(Activity_Login.this, "Erro", "Credencias incorretas.");
                     return;
                 }
+
                 Intent intent = new Intent(Activity_Login.this, Activity_Home.class);
+
+                intent.putExtra("ID", ID);
+                intent.putExtra("NOME", nome);
+
                 startActivity(intent);
             }
         });
