@@ -1,6 +1,5 @@
 package activities;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -22,10 +21,9 @@ import com.example.fitbuilder.R;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import cruds.Friends;
 import cruds.Training;
 
-public class Activity_TreinosDaFicha extends AppCompatActivity {
+public class Activity_ListaDeTreinos extends AppCompatActivity {
 
     ImageView btnVoltar;
     Button btnAdicionar;
@@ -34,7 +32,7 @@ public class Activity_TreinosDaFicha extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_treinos_da_ficha);
+        setContentView(R.layout.activity_lista_de_treinos);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.treinos_da_ficha_treinosDaFicha), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -90,10 +88,9 @@ public class Activity_TreinosDaFicha extends AppCompatActivity {
             Integer finalIndex = index;
             button.setOnClickListener(v ->
                     {
-                        Intent intent2 = new Intent(Activity_TreinosDaFicha.this, Activity_ListaDeExercicios.class);
-                        intent2.putExtra("ID_TRAINING", buttonIds.get(finalIndex));
+                        Intent intent2 = new Intent(Activity_ListaDeTreinos.this, Activity_ListaDeExercicios.class);
+                        intent2.putExtra("ID_TRAINING", buttonIds.get(finalIndex).toString());
                         startActivity(intent2);
-
                     }
             );
             index++;
@@ -102,7 +99,7 @@ public class Activity_TreinosDaFicha extends AppCompatActivity {
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity_TreinosDaFicha.this, Activity_CadastroTreino.class);
+                Intent intent = new Intent(Activity_ListaDeTreinos.this, Activity_CadastroTreino.class);
                 intent.putExtra("ID", id);
                 startActivity(intent);
                 finish();

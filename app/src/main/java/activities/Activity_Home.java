@@ -41,7 +41,8 @@ public class Activity_Home extends AppCompatActivity {
         btnFichaTreino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity_Home.this, Activity_FichaDeTreinos.class);
+                Intent intent = new Intent(Activity_Home.this, Activity_ListaDeTreinos.class);
+                intent.putExtra("ID", id);
                 startActivity(intent);
             }
         });

@@ -15,9 +15,10 @@ public class Exercise extends DatabaseHelper {
         super(context);
     }
 
-    public boolean addExercise(String name, String muscleGroup, int series, int repetition, int restTime) {
+    public boolean addExercise(Integer training_id, String name, String muscleGroup, int series, int repetition, int restTime) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("training_id", training_id);
         values.put("name", name);
         values.put("muscle_group", muscleGroup);
         values.put("series", series);
@@ -32,9 +33,10 @@ public class Exercise extends DatabaseHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_EXERCISE, null);
     }
 
-    public boolean updateExercise(int id, String name, String muscleGroup, int series, int repetition, int restTime) {
+    public boolean updateExercise(int id, Integer training_id, String name, String muscleGroup, int series, int repetition, int restTime) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("training_id", training_id);
         values.put("name", name);
         values.put("muscle_group", muscleGroup);
         values.put("series", series);

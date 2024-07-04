@@ -30,7 +30,7 @@ public class Friends extends DatabaseHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_FRIENDS, null);
     }
 
-    public boolean updateFriend(int id, String userFriend_id, String name, String email) {
+    public boolean updateFriend(int id, Integer userFriend_id, String name, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("userFriend_id", userFriend_id);

@@ -8,23 +8,6 @@
     android:background="#121214"
     tools:context="activities.Activity_ListaDeAmigos">
 
-    <!-- <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonAmigo1_ListaDeAmigos"
-        android:layout_width="380dp"
-        android:layout_height="45dp"
-        android:background="#202024"
-        android:paddingStart="15dp"
-        android:text="Arthur de Oliveira"
-        android:textAlignment="viewStart"
-        android:textColor="#C4C4CC"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout_ListaDeAmigos">
-
-    </androidx.appcompat.widget.AppCompatButton> -->
-
     <FrameLayout
         android:id="@+id/frameLayout_ListaDeAmigos"
         android:layout_width="match_parent"

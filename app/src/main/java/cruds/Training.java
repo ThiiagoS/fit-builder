@@ -13,13 +13,11 @@ public class Training extends DatabaseHelper {
         super(context);
     }
 
-    public boolean addTraining(String name, int userId, String daysWorkout, String type) {
+    public boolean addTraining(String name, int userId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("user_id", userId);
-        values.put("days_workout", daysWorkout);
-        values.put("type", type);
         long result = db.insert(TABLE_TRAINING, null, values);
         return result != -1;
     }
@@ -29,13 +27,11 @@ public class Training extends DatabaseHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_TRAINING, null);
     }
 
-    public boolean updateTraining(int id, String name, int userId, String daysWorkout, String type) {
+    public boolean updateTraining(int id, String name, int userId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("user_id", userId);
-        values.put("days_workout", daysWorkout);
-        values.put("type", type);
         int result = db.update(TABLE_TRAINING, values, "id" + " = ?", new String[]{String.valueOf(id)});
         return result > 0;
     }

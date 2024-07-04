@@ -38,10 +38,6 @@ public class Activity_ListaDeAmigos extends AppCompatActivity {
             return insets;
         });
 
-        init();
-    }
-
-    private void init() {
         Intent intent = getIntent();
 
         String id = intent.getStringExtra("ID");
@@ -129,7 +125,5 @@ public class Activity_ListaDeAmigos extends AppCompatActivity {
                 finish();
             }
         });
-
     }
-
 }

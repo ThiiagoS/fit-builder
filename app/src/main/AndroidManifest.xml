@@ -27,14 +27,12 @@
         <activity android:name="activities.Activity_CriarConta"></activity>
         <activity android:name="activities.Activity_EditarListaDeExercicios"></activity>
         <activity android:name="activities.Activity_Exercicio"></activity>
-        <activity android:name="activities.Activity_FichaDeTreinos"></activity>
         <activity android:name="activities.Activity_CadastroTreino"></activity>
-        <activity android:name="activities.Activity_CadastroFicha"></activity>
         <activity android:name="activities.Activity_Home"></activity>
         <activity android:name="activities.Activity_ListaDeAmigos"></activity>
         <activity android:name="activities.Activity_ListaDeExercicios"></activity>
         <activity android:name="activities.Activity_Perfil"></activity>
-        <activity android:name="activities.Activity_TreinosDaFicha"></activity>
+        <activity android:name="activities.Activity_ListaDeTreinos"></activity>
 
 
 
