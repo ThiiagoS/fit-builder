@@ -1,5 +1,6 @@
 package activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -84,7 +85,21 @@ public class Activity_EditarListaDeExercicios extends AppCompatActivity {
             Integer finalIndex = index;
             button.setOnClickListener(v ->
                     {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Activity_EditarListaDeExercicios.this);
+                        builder.setTitle("Confirmação");
+                        builder.setMessage("Você deseja excluir este exercicio?");
 
+                        builder.setPositiveButton("Sim", (dialog, which) -> {
+                            exercise.deleteExercise(buttonIds.get(finalIndex));
+                            finish();
+                        });
+
+                        builder.setNegativeButton("Não", (dialog, which) -> {
+
+                        });
+
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
             );
             index++;

@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import cruds.Exercise;
-import cruds.Training;
 
 public class Activity_ListaDeExercicios extends AppCompatActivity {
 
@@ -85,11 +84,8 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
             buttonContainer.addView(button);
 
             Integer finalIndex = index;
-            button.setOnClickListener(v ->
-                    {
-
-                    }
-            );
+            button.setOnClickListener(v -> {
+            });
             index++;
         }
 
@@ -112,10 +108,9 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
         btnTreinar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (String name : buttonNames) {
-                    Intent intent = new Intent(Activity_ListaDeExercicios.this, Activity_Exercicio.class);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(Activity_ListaDeExercicios.this, Activity_Exercicio.class);
+                intent.putExtra("ARRAY_EXERCICES", buttonNames);
+                startActivity(intent);
             }
         });
     }
