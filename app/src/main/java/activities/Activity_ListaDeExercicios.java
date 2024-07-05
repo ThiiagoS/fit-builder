@@ -148,6 +148,7 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
                 intent.putExtra("NAME_TRAINING", nomeTreino);
                 intent.putExtra("ID_TRAINING", idTreino);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -172,11 +173,4 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
-    }
 }

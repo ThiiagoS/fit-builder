@@ -61,7 +61,7 @@ public class Activity_Perfil extends AppCompatActivity {
         EditText idadePerfil = findViewById(R.id.editTextAge_Perfil);
         genero = "";
 
-        int blueColor = Color.parseColor("#32aeb7");
+        int blueColor = Color.parseColor("#4C88E3");
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
