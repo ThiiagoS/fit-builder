@@ -122,8 +122,15 @@ public class Activity_ListaDeAmigos extends AppCompatActivity {
                 Intent intent = new Intent(Activity_ListaDeAmigos.this, Activity_AdicionarAmigo.class);
                 intent.putExtra("ID", id);
                 startActivity(intent);
-                finish();
             }
         });
     }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
 }

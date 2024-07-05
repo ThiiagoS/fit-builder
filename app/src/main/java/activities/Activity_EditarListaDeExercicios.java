@@ -115,6 +115,7 @@ public class Activity_EditarListaDeExercicios extends AppCompatActivity {
         btnAdicionarExercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(Activity_EditarListaDeExercicios.this, Activity_CadastroExercicio.class);
                 intent.putExtra("ID_TRAINING", idTreino);
                 startActivity(intent);
@@ -129,4 +130,13 @@ public class Activity_EditarListaDeExercicios extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
 }

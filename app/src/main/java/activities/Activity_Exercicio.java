@@ -32,11 +32,17 @@ public class Activity_Exercicio extends AppCompatActivity {
         Button btnRelealizado_Exercicio = findViewById(R.id.editRelealizado_Exercicio);
 
         TextView titleExercise = findViewById(R.id.txtTitulo_Exercicio);
+        TextView seriesExercise = findViewById(R.id.txtSeries_Exercicio);
+        TextView repetitionsExercise = findViewById(R.id.txtRepeticoes_Exercicio);
 
         Intent intent = getIntent();
         String nameExercise = intent.getStringExtra("NAME_EXERCISE");
+        String numberSriesExercise = intent.getStringExtra("SERIES_EXERCISE");
+        String numberRepetitionExercise = intent.getStringExtra("REPETITION_EXERCISE");
 
         titleExercise.setText(nameExercise);
+        seriesExercise.setText(numberSriesExercise + " Séries");
+        repetitionsExercise.setText(numberRepetitionExercise + " Repetições");
 
         btnRelealizado_Exercicio.setOnClickListener(new View.OnClickListener() {
             @Override

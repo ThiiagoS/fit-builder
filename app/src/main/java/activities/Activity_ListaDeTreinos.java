@@ -104,7 +104,6 @@ public class Activity_ListaDeTreinos extends AppCompatActivity {
                 Intent intent = new Intent(Activity_ListaDeTreinos.this, Activity_CadastroTreino.class);
                 intent.putExtra("ID", id);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -116,5 +115,14 @@ public class Activity_ListaDeTreinos extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
 }
 

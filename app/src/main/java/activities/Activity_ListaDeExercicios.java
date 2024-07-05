@@ -36,8 +36,10 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
     private int currentIndex = 0;
     private int totalActivities = 0;
 
-    private  ArrayList<String> buttonNames = new ArrayList<>();
     private ArrayList<Integer> buttonIds = new ArrayList<>();
+    private  ArrayList<String> buttonNames = new ArrayList<>();
+    private  ArrayList<String> buttonSeries = new ArrayList<>();
+    private  ArrayList<String> buttonRepetitions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,17 +73,23 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
         Cursor cursor = exercise.getAllExercises();
         if (cursor.moveToFirst()) {
             do {
-                int indexNome = cursor.getColumnIndex("name");
                 int indexTrainingID = cursor.getColumnIndex("training_id");
                 int indexId = cursor.getColumnIndex("id");
+                int indexNome = cursor.getColumnIndex("name");
+                int indexSeries = cursor.getColumnIndex("series");
+                int indexRepetition = cursor.getColumnIndex("repetition");
 
-                String idTraining = cursor.getString(indexTrainingID);
                 String nomeTraining = cursor.getString(indexNome);
+                String idTraining = cursor.getString(indexTrainingID);
                 String idExercise = cursor.getString(indexId);
+                String idSeries = cursor.getString(indexSeries);
+                String idRepetition = cursor.getString(indexRepetition);
 
                 if (Objects.equals(idTraining, idTreino)) {
-                    buttonNames.add(nomeTraining);
                     buttonIds.add(Integer.parseInt(idExercise));
+                    buttonNames.add(nomeTraining);
+                    buttonSeries.add(idSeries);
+                    buttonRepetitions.add(idRepetition);
                 }
 
             } while (cursor.moveToNext());
@@ -157,9 +165,18 @@ public class Activity_ListaDeExercicios extends AppCompatActivity {
         if (currentIndex < totalActivities) {
             Intent intent = new Intent(Activity_ListaDeExercicios.this, Activity_Exercicio.class);
             intent.putExtra("NAME_EXERCISE", buttonNames.get(currentIndex));
+            intent.putExtra("SERIES_EXERCISE", buttonSeries.get(currentIndex));
+            intent.putExtra("REPETITION_EXERCISE", buttonRepetitions.get(currentIndex));
             activityLauncher.launch(intent);
             currentIndex++;
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
 }
